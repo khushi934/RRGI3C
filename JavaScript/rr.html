@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+     function message(){
+        alert("Hello")
+     }
+    const buttonclick =()=>{
+        document.getElementById("bharath").innerHTML = new Date()
+    }
+    const printName =()=>{
+    const myname = String(document.getElementById("myname1").value)
+    document.getElementById("name1").innerHTML = myname
+    }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="myname1">
+    <button onclick="printName()">Add name</button>
+    
+    <button onclick="message()">Click me</button>
+   <button onclick="buttonclick()">Date and Time</button>
+   <p id="bharath"></p>
+</body>
+</html>

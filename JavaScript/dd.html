@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const sum =()=>{
+            const num1= Number(document.getElementById("num1").value)
+            const num2= Number(document.getElementById("num2").value)
+
+            const addition = num1+num2
+            const subtract = num1-num2
+            document.getElementById("add").innerHTML = "Sum is :" + addition
+             document.getElementById("add").innerHTML = "diff is :" + subtract
+        }
+        function div(){
+            const num1= Number(document.getElementById("num1").value)
+            const num2= Number(document.getElementById("num2").value)
+
+            const div = num1/num2
+            document.getElementById("add").innerHTML=div
+ 
+        }
+
+        function mul(){
+            const num1= Number(document.getElementById("num1").value)
+            const num2= Number(document.getElementById("num2").value)
+
+            const mul = num1*num2
+            document.getElementById("add").innerHTML=mul
+        }
+
+        function diff(){
+            const num1= Number(document.getElementById("num1").value)
+            const num2= Number(document.getElementById("num2").value)
+
+            const diff = num1-num2
+            document.getElementById("add").innerHTML=diff
+        }
+    </script>
+</head>
+<body>
+    <input type="number" name="" id="num1">
+    <input type="number" name="" id="num2">
+    <button onclick="sum()">Add</button>
+    <p id="add"></p>
+    <br>
+
+    <button onclick="div()">division</button>
+    <button onclick="mul()">multiplication</button>
+    <button onclick="sub()">difference</button>
+    
+
+</body>
+</html>
