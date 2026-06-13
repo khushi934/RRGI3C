@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="JavaScript" href="Async.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const todos =()=>{
+            const list = String(document.getElementById("list1").value)
+            console.log("running")
+            if(list === ""){
+             alert("Enter Something")
+            }
+            else{
+                const li = document.createElement("li")
+                li.innerHTML = `
+                <span>${list}</span> 
+                <button onclick="update(this)">Update</button>
+                <button onclick="deleteThis(this)">Delete</button>
+                `
+               
+                console.log(li)
+                document.getElementById("datalist").appendChild(li)
+    
+              document.getElementById("list1").value = ""
+            }
+        }
+
+         function deleteThis(btn){
+             btn.parentElement.remove()
+                }
+
+        function update(btn){
+            let newList = prompt("Enter something: ")
+           btn.parentElement.querySelector("span").innerHTML = newList
+
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="list1">
+    <button onclick="todos()">Add</button>
+    <ul id="datalist"></ul>
+</body>
+</html>
