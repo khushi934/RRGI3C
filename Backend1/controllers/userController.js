@@ -1,5 +1,6 @@
 const Users= require('../models/userSchema')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 const SECRET= "BharathReddy"
 
@@ -9,8 +10,15 @@ const login = async(req,res)=>{
     if(!email || !password){
 return res.status(401).json({message:"Both Email and Password Necessary"})
     }
+
 try {
-    const userData = await Users.findOne({email,password})
+
+    const userData = await Users.findOne({email})
+    
+    const isMatch = await bcrypt.compare(req.body.password , userData.password)
+    if(!isMatch){
+        return res.status(400).json("Password missmatch")
+    }
     const token = jwt.sign({email:userData.email , id:userData._id},SECRET,{expiresIn:'1m'})
     if(!email)
     {
