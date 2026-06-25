@@ -51,11 +51,28 @@ try {
 }
 }
 
-const uploadFiles = async (req,res) => {
+const uploadFiles = async (req, res) => {
     try {
-        res.status(200).json({ message: 'File uploaded'})
+        if (!req.file) {
+            return res.status(400).json({ message: 'No file uploaded. Use multipart/form-data with field name "image".' })
+        }
+
+        return res.status(200).json({
+            message: 'File uploaded',
+            file: {
+                originalName: req.file.originalname,
+                mimeType: req.file.mimetype,
+                size: req.file.size,
+                url: req.file.path || req.file.location || req.file.secure_url
+            }
+        })
     } catch (error) {
-        res.status(400).json(error)
+        console.error('Upload error:', error)
+        return res.status(500).json({
+            message: 'Upload failed',
+            error: error.message || error,
+            stack: error.stack
+        })
     }
 }
 

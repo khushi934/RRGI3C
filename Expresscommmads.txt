@@ -1,0 +1,15 @@
+npm init -y -- for creating backend pacakage.json
+
+ install all necessary packages
+ npm i express cors dotenv mongoose jsonwebtoken multer clodinary multer-storage-cloudinary bcrypt
+
+ main file index.js
+
+ for exports we have use module.exports
+ for imports we have to use const vari = require('dependency)
+
+ for testing api thunderclient and post main
+ MVC - model view controller , Middlewares 
+
+
+ methods - get , put ,post , delete , patch with CRUD
